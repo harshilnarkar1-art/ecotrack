@@ -3,6 +3,7 @@ package com.clean.ecotrack.entites;
 import java.util.List;
 
 import com.clean.ecotrack.enums.AppRole;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -23,12 +24,13 @@ public class Role {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int role_id;
+	private Integer role_id;
 	
 	@Enumerated(EnumType.STRING)
 	private AppRole appRole;
 	
 	@OneToMany(mappedBy = "role")
+	@JsonBackReference
 	private List<User> users;
 
 }

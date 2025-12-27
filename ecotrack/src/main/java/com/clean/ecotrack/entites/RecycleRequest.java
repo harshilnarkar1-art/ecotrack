@@ -30,11 +30,13 @@ public class RecycleRequest {
 	
 	private int quantity;
 	
-	@Enumerated(EnumType.STRING)  //
+	private String reason;
+	
+	@Enumerated(EnumType.STRING)
 	private RequestStatus requestStatus;
 	
 	@ManyToOne
-	@JsonManagedReference // ye samajayega
+	@JsonManagedReference 			// ye samajayega
 	private User user;
 
 }
