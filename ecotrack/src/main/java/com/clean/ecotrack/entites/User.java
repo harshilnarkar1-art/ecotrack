@@ -1,5 +1,6 @@
 package com.clean.ecotrack.entites;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.boot.webmvc.autoconfigure.WebMvcProperties.Apiversion.Use;
@@ -49,5 +50,9 @@ public class User {
 	@ManyToOne
 	@JsonManagedReference
 	private Role role;
+	
+	@OneToMany(mappedBy = "user")
+	@JsonBackReference
+	private List<Enrollments> enrollments=new ArrayList<Enrollments>();
 
 }
