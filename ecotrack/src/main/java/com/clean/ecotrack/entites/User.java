@@ -44,7 +44,7 @@ public class User {
 	private int age;
 	
 	@OneToMany(mappedBy = "user")
-	@JsonBackReference //ye samaj gaya
+	@JsonBackReference("user-request")
 	private List<RecycleRequest> recycleRequests;
 	
 	@ManyToOne
@@ -52,7 +52,7 @@ public class User {
 	private Role role;
 	
 	@OneToMany(mappedBy = "user")
-	@JsonBackReference
+	@JsonBackReference("user-enrollments")
 	private List<Enrollments> enrollments=new ArrayList<Enrollments>();
 
 }
