@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.clean.ecotrack.dtos.WorkShopDto;
@@ -32,8 +33,10 @@ public class WorkShopController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<WorkShopDto>> getAllWorkShops(){
-		return ResponseEntity.ok(workShopService.getAllWorkShops());
+	public ResponseEntity<List<WorkShopDto>> getAllWorkShops(	@RequestParam(defaultValue = "0") int pageNumber, 
+																@RequestParam(defaultValue = "2") int pageSize){
+		
+		return ResponseEntity.ok(workShopService.getAllWorkShops(pageNumber, pageSize));
 	}
 	
 	@GetMapping("/{id}")

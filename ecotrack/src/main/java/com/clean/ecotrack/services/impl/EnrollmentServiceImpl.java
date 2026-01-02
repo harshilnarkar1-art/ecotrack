@@ -12,6 +12,7 @@ import com.clean.ecotrack.exceptions.NotFoundException;
 import com.clean.ecotrack.repositories.EnrollmentRepository;
 import com.clean.ecotrack.repositories.UserRepository;
 import com.clean.ecotrack.repositories.WorkShopRepository;
+import com.clean.ecotrack.services.EmailService;
 import com.clean.ecotrack.services.EnrollmentService;
 
 @Service
@@ -29,6 +30,9 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 	@Autowired
 	private ModelMapper modelMapper;
 	
+	@Autowired
+	private EmailService emailService;
+	
 	
 
 	@Override
@@ -45,6 +49,8 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 		enrollments.setWorkShop(workShop);
 		
 		Enrollments savedEnrollment = enrollmentRepository.save(enrollments);
+		
+		emailService.sendEmail("priyanka.vibhute@itvedant.com", "Congratulations | Enrollment Completed","Thanks for enrolling for our "+workShop.getName());
 		return modelMapper.map(savedEnrollment, EnrollmentsDto.class);
 	}
 
