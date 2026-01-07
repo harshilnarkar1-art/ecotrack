@@ -6,5 +6,7 @@ public interface EnrollmentService {
 	
 	EnrollmentsDto enroll(String userId,int workShopId);
 	
+	void confirmPayment(String orderId, String paymentId);
+	
 	
 }

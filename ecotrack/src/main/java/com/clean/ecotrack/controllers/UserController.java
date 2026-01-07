@@ -22,9 +22,5 @@ public class UserController {
 	public ResponseEntity<UserDto> register(@RequestBody UserDto userDto){
 		return new ResponseEntity<UserDto>(userService.createUser(userDto), HttpStatus.CREATED);
 	}
-	
-	
-	
-	
 
 }

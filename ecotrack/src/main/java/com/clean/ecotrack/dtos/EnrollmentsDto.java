@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import com.clean.ecotrack.entites.User;
 import com.clean.ecotrack.entites.WorkShop;
+import com.clean.ecotrack.enums.PaymentStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,5 +21,11 @@ public class EnrollmentsDto {
 	private WorkShop workShop;
 	
 	private LocalDateTime enrolledAt;
+	
+	private Double amount;
+	private String razorpayOrderId;
+	private String razorpayPaymentId;
+	
+	private PaymentStatus paymentStatus;
 
 }

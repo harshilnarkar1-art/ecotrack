@@ -7,5 +7,4 @@ import com.clean.ecotrack.entites.WorkShop;
 public interface WorkShopRepository extends JpaRepository<WorkShop, Integer> {
 	
 	
-
 }

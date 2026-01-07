@@ -38,7 +38,7 @@ public class SecurityConfig {
 		.cors(cors -> cors.configurationSource(request -> {
             CorsConfiguration config = new CorsConfiguration();
             config.setAllowCredentials(true);
-//            config.addAllowedOrigin("http://localhost:5173");
+            config.addAllowedOrigin("http://localhost:3000");
             config.addAllowedHeader("*");
             config.addAllowedMethod("*");
             return config;
@@ -47,6 +47,7 @@ public class SecurityConfig {
 		.authorizeHttpRequests(req->req
 		.requestMatchers( "/users/**","/auth/login").permitAll()
 		.requestMatchers("/workshops/**").permitAll()
+		.requestMatchers(HttpMethod.POST,"/enroll/**").permitAll()
 		.anyRequest().authenticated()
 		);
 		

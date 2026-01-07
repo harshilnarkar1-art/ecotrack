@@ -31,7 +31,7 @@ public class WorkShop {
 	
 	private String description;
 	
-	private Integer price;
+	private Double price;
 	
 	private String image;
 	

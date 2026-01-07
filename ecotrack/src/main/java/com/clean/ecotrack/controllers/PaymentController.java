@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.razorpay.RazorpayClient;
+import com.razorpay.RazorpayException;
 
 import jakarta.validation.Valid;
 
@@ -26,12 +27,10 @@ public class PaymentController {
 		try {
 			new RazorpayClient(RazorpayKey, razorpaySecret);
 			
-		} catch (Exception e) {
+		} catch (RazorpayException e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
 	
-	
-
 }

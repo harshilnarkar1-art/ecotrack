@@ -16,7 +16,7 @@ public class WorkShopDto {
 	
 	private String description;
 	
-	private Integer price;
+	private Double price;
 	
 	private String image;
 	
